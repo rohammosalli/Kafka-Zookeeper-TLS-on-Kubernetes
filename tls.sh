@@ -1,5 +1,5 @@
 ## 1. Create certificate authority (CA)
-openssl req -new -x509 -keyout ca-key -out ca-cert -days 365 -passin pass:qwerrewq -passout pass:qwerrewq -subj "/CN=kafka-0.kafka-headless.default.svc.roham.pinsvc.net/OU=DevOps/O=snapp/L=FA/ST=Tehran/C=Iran"
+openssl req -new -x509 -keyout ca-key -out ca-cert -days 365 -passin pass:qwerrewq -passout pass:qwerrewq -subj "/CN=kafka-0.kafka-headless.default.svc.roham.pinsvc.net/OU=DevOps/O=snapp/L=FA/ST=Tehran/C=IR"
 
 ## 2. Create client keystore
 keytool -noprompt -keystore kafka.client.keystore.jks -genkey -alias localhost -dname "CN=kafka-0.kafka-headless.default.svc.roham.pinsvc.net, OU=DevOps, O=snapp, L=FA, ST=Tehran, C=Iran" -storepass qwerrewq -keypass qwerrewq
