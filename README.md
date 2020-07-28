@@ -71,7 +71,7 @@ To make this happen we can use initContainers inside statefulset and one image `
      - ./tls.sh
      - mv kafka.server.truststore.jks kafka.truststore.jks
      - mv kafka.server.keystore.jks kafka-0.keystore.jks
-     - kubectl create secret generic kafka-ssl --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key
+     - kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key
     volumeMounts:
     - mountPath: /certs/
       name: hatch-ca
@@ -102,7 +102,7 @@ spec:
 ###### create secret file on kubernetes 
 
 ```bash
-kubectl create secret generic hhatch-ca --from-file=trust/
+kubectl create secret generic hatch-ca --from-file=trust/
 ```
 
 ###### NOTE: 

@@ -254,7 +254,7 @@ auth:
   ##       kubectl create secret generic SECRET_NAME --from-file=./kafka.truststore.jks --from-file=./kafka-0.keystore.jks --from-file=./kafka-1.keystore.jks ...
   ## Alternatively, you can put your JKS files under the files/jks directory
   ##
-  jksSecret: kafka-ssl
+  jksSecret: hatch-ca
 
   ## Password to access the JKS files when they are password-protected.
   ##
