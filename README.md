@@ -32,7 +32,7 @@ helm init --service-account tiller --upgrade
 
 I used this domain kafka-0.kafka-headless.default.svc.roham.pinsvc.net for generating certificate thus URL accessible inside the cluster 
 
-```
+```bash
 chmod +x tls.sh 
 
 ./ tls
@@ -150,8 +150,8 @@ service:
 
 after Kafka deployed we can test it with SSL authenticate 
 
-‍```bash
 
+```bash
 kubectl exec -it kafka-0 bash 
 
 cd  /opt/bitnami/kafka/bin
@@ -165,9 +165,8 @@ ssl.keystore.location=/certs/kafka-0.keystore.jks
 ssl.keystore.password=qwerrewq
 ssl.key.password=qwerrewq
 EOL
-```
 
-```bash
+
 ./kafka-console-producer.sh --broker-list kafka-0.kafka-headless.default.svc.roham.pinsvc.net:9093 --topic test --producer.config client-ssl.properties 
 
 
