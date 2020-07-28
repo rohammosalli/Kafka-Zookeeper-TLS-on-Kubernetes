@@ -178,4 +178,5 @@ EOL
 ### explain security concerns and solution
 
 1 - it's good for us if we use vault for certificates and secrets to manage 
+
 2 - to have an end to end encryption between services we can use Service mesh like Istio 
