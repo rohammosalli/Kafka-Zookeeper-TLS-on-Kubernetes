@@ -67,7 +67,7 @@ To make this happen we can use initContainers inside statefulset and one image `
       name: hatch-ca
 ```
 
-####### NOTE 
+###### NOTE 
 I also Included ca to the hatch-ca so that's mean if you have the plan to generate a certificate for other services base on this ca you can make an issuer like this
 
 We can now create an Issuer referencing the Secret resource we just created
@@ -85,13 +85,13 @@ spec:
 ```    
 
 
-####### create secret file on kubernetes 
+###### create secret file on kubernetes 
 
 ```bash
 kubectl create secret generic hhatch-ca --from-file=trust/
 ```
 
-####### NOTE: 
+###### NOTE: 
 
 for customizing your deployment you can change anything you want on the helm charts in values file, to deploy Kafka and zookeeper you need to just run this command 
 
@@ -144,12 +144,9 @@ service:
    - name: zookeeper-truststore
      mountPath: /certs/truststore
      readOnly: true
-
-
-
 ```
 
-####### Test our kafka 
+###### Test our kafka 
 
 after Kafka deployed we can test it with SSL authenticate 
 
@@ -168,19 +165,18 @@ ssl.keystore.location=/certs/kafka-0.keystore.jks
 ssl.keystore.password=qwerrewq
 ssl.key.password=qwerrewq
 EOL
+```
 
-
+```bash
 ./kafka-console-producer.sh --broker-list kafka-0.kafka-headless.default.svc.roham.pinsvc.net:9093 --topic test --producer.config client-ssl.properties 
 
 
 ./kafka-console-consumer.sh --bootstrap-server kafka-0.kafka-headless.default.svc.roham.pinsvc.net:9093 --topic test --from-beginning --consumer.config client-ssl.properties
+
 ```
 
 
-
-###### explain security concerns and solution
-
-
+### explain security concerns and solution
 
 1 - it's good for us if we use vault for certificates and secrets to manage 
 2 - to have an end to end encryption between services we can use Service mesh like Istio 
