@@ -102,7 +102,7 @@ spec:
 ###### create secret file on kubernetes 
 
 ```bash
-kubectl create secret generic hatch-ca --from-file=trust/
+kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key
 ```
 
 ###### NOTE: 
