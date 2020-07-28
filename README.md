@@ -99,7 +99,7 @@ for customizing your deployment you can change anything you want on the helm cha
 ######  NOTE 
 
   1 - I didn't use any storage for Kafka and zookeeper because of my environment but to have Kafka in Kubernetes base on best practice  you need o good and stable storage 
-  
+
 ```bash
 helm install --name kafka -f  values.yaml .
 ```
@@ -181,4 +181,4 @@ EOL
 
 1 - it's good for us if we use vault for certificates and secrets to manage 
 
-2 - to have an end to end encryption between services we can use Service mesh like Istio 
+2 - to have an end to end encryption between services in kubernetes we can use Service mesh like Istio 
