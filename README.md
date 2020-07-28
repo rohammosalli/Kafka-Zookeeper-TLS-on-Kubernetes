@@ -1,7 +1,13 @@
 #### Kafka and Zookeeper deployments with TLS on Kubernetes 
 
 ###### Self Hosted Cluster
-I used this link High Available Kubernetes Cluster Setup using Kubespray to deploy my cluster on Scaleway
+
+I used this link [High Available Kubernetes Cluster Setup using Kubespray](https://schoolofdevops.github.io/ultimate-kubernetes-bootcamp/cluster_setup_kubespray/) to deploy my cluster on Scaleway 
+
+After you configured your ansible inventory base on the doc you can simply tun this command to deploy the cluster 
+
+ansible-playbook -b -v -i inventory/prod/hosts.ini cluster.yml
+
 
 1 - One node Worker/Master
 
