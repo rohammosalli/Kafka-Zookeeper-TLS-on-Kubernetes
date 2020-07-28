@@ -182,6 +182,8 @@ EOL
 
 ### explain security concerns and solution
 
-1 - it's good for us if we use vault for certificates and secrets to manage 
+1 - It's good for us if we use vault for certificates and secrets to manage 
 
-2 - to have an end to end encryption between services in kubernetes we can use Service mesh like Istio 
+2 - To have an end to end encryption between services in kubernetes we can use Service mesh like Istio 
+
+3 - It's good if we use ACLs for Authorization, Once your clients are authenticated, your Kafka brokers can run them against access control lists (ACL) to determine whether or not a particular client would be authorised to write or read to some topic.
