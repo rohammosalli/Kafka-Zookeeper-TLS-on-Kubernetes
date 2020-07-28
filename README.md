@@ -4,7 +4,7 @@
 
 I used this link [High Available Kubernetes Cluster Setup using Kubespray](https://schoolofdevops.github.io/ultimate-kubernetes-bootcamp/cluster_setup_kubespray/) to deploy my cluster on Scaleway 
 
-After you configured your ansible inventory base on the doc you can simply tun this command to deploy the cluster 
+After you configured your ansible inventory base on the doc you can simply run this command to deploy the cluster 
 
 ```bash
 ansible-playbook -b -v -i inventory/prod/hosts.ini cluster.yml
