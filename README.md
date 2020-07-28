@@ -43,6 +43,9 @@ mv kafka.server.truststore.jks kafka.truststore.jks
 mv kafka.server.keystore.jks kafka-0.keystore.jks
 
 ```
+#### Note 
+There are some other jks when you run ```tls.sh``` like kafka.clinet.truststore.jks and kafka.client.keystore.jks if you want to use it for your client but I used the same jks on the server 
+
 NOTE: 
 
 How make tls.sh automated with helm charts 
