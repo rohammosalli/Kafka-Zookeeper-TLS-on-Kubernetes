@@ -71,9 +71,13 @@ To make this happen we can use initContainers inside statefulset and one image `
 ```
 
 ###### NOTE 
-I also Included ca to the hatch-ca so that's mean if you have the plan to generate a certificate for other services base on this ca you can make an issuer like this
+I also Included ca to the hatch-ca so that's mean if you have the plan to generate a certificate for other services Except Kafka/Zookeeper base on this ca you can make an issuer like this
 
-We can now create an Issuer referencing the Secret resource we just created
+We can now create an Issuer referencing the Secret resource we just created 
+
+
+#### NOTE 
+You will need certmanager for this 
 
 
 ```yaml
@@ -186,4 +190,4 @@ EOL
 
 2 - To have an end to end encryption between services in kubernetes we can use Service mesh like Istio 
 
-3 - It's good if we use ACLs for Authorization, Once your clients are authenticated, your Kafka brokers can run them against access control lists (ACL) to determine whether or not a particular client would be authorised to write or read to some topic.
+3 - It's good if we use ACLs for Authorization, Once your clients are authenticated, your Kafka brokers can run them against access control lists (ACL) to determine whether or not a particular client would be authorised to write or read to some topic. Encryption solves the problem of the man in the middle (MITM) attack.
