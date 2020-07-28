@@ -6,8 +6,9 @@ I used this link [High Available Kubernetes Cluster Setup using Kubespray](https
 
 After you configured your ansible inventory base on the doc you can simply tun this command to deploy the cluster 
 
+```bash
 ansible-playbook -b -v -i inventory/prod/hosts.ini cluster.yml
-
+```
 
 1 - One node Worker/Master
 
