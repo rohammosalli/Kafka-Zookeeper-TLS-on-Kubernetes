@@ -1,3 +1,5 @@
+rm -rf *.jks
+
 ## 1. Create certificate authority (CA)
 openssl req -new -x509 -keyout ca-key -out ca-cert -days 365 -passin pass:qwerrewq -passout pass:qwerrewq -subj "/CN=kafka-0.kafka-headless.default.svc.roham.pinsvc.net/OU=DevOps/O=snapp/L=FA/ST=Tehran/C=IR"
 
@@ -50,4 +52,4 @@ cp kafka.server.keystore.jks kafka-0.keystore.jks
 
 kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key  --dry-run=true -o yaml | kubectl apply -f -
 
-helm install --name kafka -f  kafka/values.yaml kafka/
+helm upgrade --install --name kafka -f  kafka/values.yaml kafka/
