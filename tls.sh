@@ -52,4 +52,4 @@ cp kafka.server.keystore.jks kafka-0.keystore.jks
 
 kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key  --dry-run=true -o yaml | kubectl apply -f -
 
-helm upgrade --install --name kafka -f  kafka/values.yaml kafka/
+helm upgrade --install kafka -f  kafka/values.yaml kafka/
