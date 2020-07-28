@@ -43,5 +43,11 @@ openssl pkcs12 -in cert_and_key.p12 -nocerts -nodes -passin pass:qwerrewq -out s
 keytool -noprompt -keystore kafka.client.keystore.jks -exportcert -alias CARoot -rfc -file ssl/ca_cert.pem -storepass qwerrewq
 
 
+cp  kafka.server.truststore.jks kafka.truststore.jks
+
+cp kafka.server.keystore.jks kafka-0.keystore.jks
 
 
+kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key  --dry-run=true -o yaml | kubectl apply -f -
+
+helm install --name kafka -f  kafka/values.yaml kafka/
