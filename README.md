@@ -96,8 +96,10 @@ kubectl create secret generic hhatch-ca --from-file=trust/
 for customizing your deployment you can change anything you want on the helm charts in values file, to deploy Kafka and zookeeper you need to just run this command 
 
 
-####### NOTE 
+######  NOTE 
+
   1 - I didn't use any storage for Kafka and zookeeper because of my environment but to have Kafka in Kubernetes base on best practice  you need o good and stable storage 
+  
 ```bash
 helm install --name kafka -f  values.yaml .
 ```
