@@ -40,7 +40,7 @@ cp DOWNLOADEDSERVICEKEY.json creds/serviceaccount.json
 
 Step 3 ( Deploy GKE Cluster )
 
-Set your project name and location in provider.tf and .travis.yml then Deploy
+Then you can deploy cluster on GCP with terraform apply command
 ```bash
 terraform plan
 
