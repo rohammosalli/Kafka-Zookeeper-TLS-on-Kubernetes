@@ -1,6 +1,6 @@
 #### Kafka and Zookeeper deployments with TLS on Kubernetes 
 
-###### Self Hosted Cluster
+#### Self Hosted Cluster
 
 I used this link [High Available Kubernetes Cluster Setup using Kubespray](https://schoolofdevops.github.io/ultimate-kubernetes-bootcamp/cluster_setup_kubespray/) to deploy my cluster on Scaleway 
 
