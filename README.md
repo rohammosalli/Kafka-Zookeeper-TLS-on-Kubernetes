@@ -33,7 +33,7 @@ Step 2 ( Download Google Cloud Service Key and Enable kubernetes API ):
 We need a way for the Terraform runtime to authenticate with the GCP API so go to the Cloud Console, navigate to IAM & Admin > Service Accounts, and click Create Service Account with Project Editor role. Your browser will download a JSON file containing the details of the service account and a private key that can authenticate as a project editor to your project. Keep this JSON file safe!
 
 ```bash
-cd deployment/iac
+cd deploy-gke-cluster
 mkdir creds
 cp DOWNLOADEDSERVICEKEY.json creds/serviceaccount.json
 ```
@@ -65,6 +65,10 @@ helm init --service-account tiller --upgrade
 ###### Secret CA (self-generated Certificate Authority key and certificate)
 
 I used this domain kafka-0.kafka-headless.default.svc.roham.pinsvc.net for generating certificate thus URL accessible inside the cluster 
+
+### NOTE about tls.sh
+
+This file included some password best way for you is define some variabe in CI/CD platform and pass the value to it or just useing hashicorp vault.
 
 ```bash
 chmod +x tls.sh 
