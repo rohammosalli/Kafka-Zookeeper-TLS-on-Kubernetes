@@ -20,6 +20,33 @@ Note :
 
 2 - If you use Master Node alos as worker Please don't do it.
 
+
+#### Deploy Cluster on GKE
+
+Step 1 ( Install Terraform ):
+
+Download terraform from below link and extend path to your bash path variable Download [HERE](https://www.terraform.io/downloads.html)
+
+
+Step 2 ( Download Google Cloud Service Key and Enable kubernetes API ):
+
+We need a way for the Terraform runtime to authenticate with the GCP API so go to the Cloud Console, navigate to IAM & Admin > Service Accounts, and click Create Service Account with Project Editor role. Your browser will download a JSON file containing the details of the service account and a private key that can authenticate as a project editor to your project. Keep this JSON file safe!
+
+```bash
+cd deployment/iac
+mkdir creds
+cp DOWNLOADEDSERVICEKEY.json creds/serviceaccount.json
+```
+
+Step 3 ( Deploy GKE Cluster )
+
+Set your project name and location in provider.tf and .travis.yml then Deploy
+```bash
+terraform plan
+
+terraform apply
+```
+
 ###### Setting up Helm
 
 
