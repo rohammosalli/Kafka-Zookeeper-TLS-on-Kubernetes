@@ -19,7 +19,8 @@ stages:
     --set jksPassword=$password
     --set auth.clientProtocol=tls
     --set auth.interBrokerProtocol=tls
-    deploy
+    kafka -f  kafka/values.yaml
+    kafka/
   - >
     helm upgrade
     --namespace default
@@ -31,7 +32,8 @@ stages:
     --set auth.interBrokerProtocol=tls
     --wait
     --install
-    deploy
+    kafka -f  kafka/values.yaml
+    kafka/
   
 
 deploy_beta:
