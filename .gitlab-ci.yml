@@ -13,6 +13,8 @@ stages:
     --set clusterDomain=roham.pinsvc.net
     ## your jsk password 
     --set jksPassword=$password
+    --set auth.clientProtocol=tls
+    --set auth.interBrokerProtocol=tls
     deploy
   - >
     helm upgrade
@@ -21,6 +23,8 @@ stages:
     --set auth.jksSecret=hatch-ca
     ## your jsk password 
     --set auth.jksPassword=$password
+    --set auth.clientProtocol=tls
+    --set auth.interBrokerProtocol=tls
     --wait
     --install
     deploy
