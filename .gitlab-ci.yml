@@ -3,6 +3,10 @@ stages:
 
 .deploy_script:
   script: &deploy_script
+  # - chmod +x tls.sh
+  # - ./tls.sh # You must comment on the last 4 lines in tls.sh if you have plan run it with Gitlab CI
+  # - cp  kafka.server.truststore.jks kafka.truststore.jks
+  # - cp kafka.server.keystore.jks kafka-0.keystore.jks
   - kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key  --dry-run=true -o yaml | kubectl apply -f -
   - >
     helm template
