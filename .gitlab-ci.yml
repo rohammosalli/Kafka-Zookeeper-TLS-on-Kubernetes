@@ -1,0 +1,50 @@
+stages:
+  - deploy
+
+.deploy_script:
+  script: &deploy_script
+  - kubectl create secret generic hatch-ca --from-file=./kafka.server.truststore.jks --from-file=./kafka.server.keystore.jks --from-file=./ca-cert --from-file=ca-key  --dry-run=true -o yaml | kubectl apply -f -
+  - >
+    helm template
+    --namespace default
+    ## your ca secret 
+    --set auth.jksSecret=hatch-ca
+    ## Kubernetes Cluster Domain
+    --set clusterDomain=roham.pinsvc.net
+    ## your jsk password 
+    --set jksPassword=$password
+    deploy
+  - >
+    helm upgrade
+    --namespace default
+    ## your ca secret 
+    --set auth.jksSecret=hatch-ca
+    ## your jsk password 
+    --set auth.jksPassword=$password
+    --wait
+    --install
+    deploy
+  
+
+deploy_beta:
+  stage: deploy
+  retry: 2
+  script: *deploy_script
+  variables:
+  environment:
+    name: beta
+  only:
+  - beta
+
+deploy_master:
+  stage: deploy
+  retry: 2
+  script: *deploy_script
+  variables:
+  environment:
+    name: production
+  only:
+  - master
+  when: manual
+
+
