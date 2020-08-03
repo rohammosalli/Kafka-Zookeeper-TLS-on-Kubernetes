@@ -11,7 +11,7 @@ stages:
     --set auth.jksSecret=hatch-ca
     ## Kubernetes Cluster Domain
     --set clusterDomain=roham.pinsvc.net
-    ## your jsk password 
+    ## your jsk password | you have to define your password in gitlab ENV 
     --set jksPassword=$password
     --set auth.clientProtocol=tls
     --set auth.interBrokerProtocol=tls
